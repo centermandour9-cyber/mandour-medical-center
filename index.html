@@ -150,7 +150,10 @@ html[dir="ltr"] .section-head{ }
 .brand-name strong{ font-family:'Cairo'; font-weight:800; font-size:1.02rem; color:var(--teal-deep); }
 .brand-name span{ font-size:.72rem; color:var(--ink-faint); letter-spacing:.02em; }
 
-.main-nav{ display:flex; align-items:center; gap:1.9rem; }
+.main-nav{ display:flex; align-items:center; gap:1.15rem; }
+.main-nav a{ white-space:nowrap; }
+.brand-name{ white-space:nowrap; }
+@media (max-width:1700px){ .main-nav{ gap:.9rem; } .main-nav a{ font-size:.88rem !important; } .phone-chip{ display:none !important; } .brand-name span{ display:none; } }
 .main-nav a{ font-weight:600; font-size:.96rem; color:var(--ink); position:relative; padding:.3rem 0; }
 .main-nav a::after{
   content:''; position:absolute; bottom:-2px; right:0; left:auto; width:0; height:2px; background:var(--gold);
@@ -182,6 +185,10 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
   .main-nav{ display:none; }
   .hamburger{ display:block; }
   .phone-chip{ display:none; }
+}
+@media (max-width:1400px){
+  .main-nav{ display:none; }
+  .hamburger{ display:block; }
 }
 
 /* ---------- Hero ---------- */
@@ -516,6 +523,7 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
 
     <nav class="main-nav">
       <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="index.html#offers" data-ar="العروض" data-en="Offers">العروض</a>
       <a href="index.html#about" data-ar="من نحن" data-en="About">من نحن</a>
       <a href="index.html#specialties" data-ar="التخصصات الطبية" data-en="Specialties">التخصصات الطبية</a>
       <a href="index.html#doctors" data-ar="الأطباء" data-en="Doctors">الأطباء</a>
@@ -541,6 +549,7 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
   </div>
   <div class="mobile-nav">
     <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="index.html#offers" data-ar="العروض" data-en="Offers">العروض</a>
     <a href="index.html#about" data-ar="من نحن" data-en="About">من نحن</a>
     <a href="index.html#specialties" data-ar="التخصصات الطبية" data-en="Specialties">التخصصات الطبية</a>
     <a href="index.html#doctors" data-ar="الأطباء" data-en="Doctors">الأطباء</a>
@@ -588,6 +597,61 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
     </div>
   </div>
 </section>
+
+<!-- ================= OFFERS ================= -->
+<section id="offers">
+  <div class="container">
+    <div class="section-head" style="margin-inline:auto; text-align:center;">
+      <span class="eyebrow" data-ar="عروض المركز" data-en="Our Offers">عروض المركز</span>
+      <h2 data-ar="العروض الحالية" data-en="Current Offers">العروض الحالية</h2>
+    </div>
+    <div class="offers-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 420px)); justify-content:center; gap:1.6rem; margin:2rem 0;">
+
+      <div class="offer-card" data-expires="2026-11-22" style="background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius-l); overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.08); display:flex; flex-direction:column;">
+        <a href="assets/offer-scaling-polishing.jpg" target="_blank" rel="noopener" style="display:block;">
+          <img src="assets/offer-scaling-polishing.jpg" alt="عرض تنظيف الجير وتلميع الأسنان بـ 980 جنيه بدلًا من 2000 جنيه — مركز مندور الطبي" loading="lazy" style="width:100%; height:auto; display:block;">
+        </a>
+        <div style="padding:1.4rem; display:flex; flex-direction:column; gap:.6rem; flex:1;">
+          <h3 style="margin:0;" data-ar="تنظيف الجير وتلميع الأسنان" data-en="Teeth Scaling &amp; Polishing">تنظيف الجير وتلميع الأسنان</h3>
+          <p style="margin:0;" data-ar="كل الأسنان في جلسة واحدة" data-en="All teeth in one session">كل الأسنان في جلسة واحدة</p>
+          <p style="margin:0; font-size:1.25rem;"><strong data-ar="980 جنيه" data-en="EGP 980">980 جنيه</strong> <s style="color:var(--ink-faint); font-size:1rem;" data-ar="بدلًا من 2,000 جنيه" data-en="instead of EGP 2,000">بدلًا من 2,000 جنيه</s></p>
+          <p style="margin:0; color:var(--ink-faint);" data-ar="العرض ساري من 5/11 لحد 22/11" data-en="Valid from 5 Nov to 22 Nov">العرض ساري من 5/11 لحد 22/11</p>
+          <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D8%B9%D8%B1%D8%B6%20%D8%AA%D9%86%D8%B8%D9%8A%D9%81%20%D8%A7%D9%84%D8%AC%D9%8A%D8%B1%20%D9%88%D8%AA%D9%84%D9%85%D9%8A%D8%B9%20%D8%A7%D9%84%D8%A3%D8%B3%D9%86%D8%A7%D9%86" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:auto;" data-ar="احجز العرض عبر واتساب" data-en="Book this offer on WhatsApp">احجز العرض عبر واتساب</a>
+        </div>
+      </div>
+
+      <div class="offer-card" style="background:#fff; border:1px solid var(--line-soft); border-radius:var(--radius-l); overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.08); display:flex; flex-direction:column;">
+        <a href="assets/offer-veneers.jpg" target="_blank" rel="noopener" style="display:block;">
+          <img src="assets/offer-veneers.jpg" alt="عرض الفينيرز بـ 4,000 جنيه للوحدة بدلًا من 6,000 جنيه — مركز مندور الطبي" loading="lazy" style="width:100%; height:auto; display:block;">
+        </a>
+        <div style="padding:1.4rem; display:flex; flex-direction:column; gap:.6rem; flex:1;">
+          <h3 style="margin:0;" data-ar="الفينيرز" data-en="Veneers">الفينيرز</h3>
+          <p style="margin:0;" data-ar="ابتسامة هوليوود بلون وشكل يناسبك — تصميم ابتسامة على مقاس وشّك ولون طبيعي يدوم" data-en="A Hollywood smile in a shade and shape that suit you — a smile designed for your face, with a natural, lasting colour">ابتسامة هوليوود بلون وشكل يناسبك — تصميم ابتسامة على مقاس وشّك ولون طبيعي يدوم</p>
+          <p style="margin:0; font-size:1.25rem;"><strong data-ar="4,000 جنيه للوحدة" data-en="EGP 4,000 per unit">4,000 جنيه للوحدة</strong> <s style="color:var(--ink-faint); font-size:1rem;" data-ar="بدلًا من 6,000 جنيه" data-en="instead of EGP 6,000">بدلًا من 6,000 جنيه</s></p>
+          <p style="margin:0; color:var(--ink-faint);" data-ar="لفترة محدودة" data-en="For a limited time">لفترة محدودة</p>
+          <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%84%D9%81%D9%8A%D9%86%D9%8A%D8%B1%D8%B2" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:auto;" data-ar="احجز العرض عبر واتساب" data-en="Book this offer on WhatsApp">احجز العرض عبر واتساب</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+/* Hide offers automatically after their end date (data-expires = last valid day) */
+(function(){
+  var today = new Date(); today.setHours(0,0,0,0);
+  var cards = document.querySelectorAll('#offers .offer-card[data-expires]');
+  var visible = 0;
+  cards.forEach(function(c){
+    var end = new Date(c.getAttribute('data-expires') + 'T23:59:59');
+    if (end < today) { c.style.display = 'none'; } else { visible++; }
+  });
+  if (cards.length && !visible) {
+    var sec = document.getElementById('offers'); if (sec) sec.style.display = 'none';
+    document.querySelectorAll('a[href$="#offers"]').forEach(function(a){ a.style.display='none'; });
+  }
+})();
+</script>
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
