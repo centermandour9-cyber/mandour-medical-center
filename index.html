@@ -356,6 +356,15 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
 .doctor-info .deg{ font-size:.82rem; color:var(--ink-faint); }
 .doctor-info p{ font-size:.88rem; margin:.3rem 0; }
 .doctor-actions{ display:flex; gap:.6rem; margin-top:auto; padding-top:.6rem; }
+.doc-slider{ position:relative; }
+.doc-track{ display:flex; gap:1.4rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; padding:.3rem .2rem 1rem; }
+.doc-track::-webkit-scrollbar{ display:none; }
+.doc-track .doctor-card{ flex:0 0 calc((100% - 3*1.4rem)/4); scroll-snap-align:start; }
+@media (max-width:960px){ .doc-track .doctor-card{ flex-basis:calc((100% - 1.4rem)/2); } }
+@media (max-width:600px){ .doc-track .doctor-card{ flex-basis:82%; } }
+.doc-nav{ position:absolute; top:38%; z-index:2; width:44px; height:44px; border-radius:50%; border:1px solid var(--line); background:var(--surface); box-shadow:0 4px 14px rgba(0,0,0,.12); font-size:1.8rem; line-height:1; cursor:pointer; color:var(--ink); }
+.doc-prev{ right:-18px; } .doc-next{ left:-18px; }
+@media (max-width:600px){ .doc-prev{ right:-6px; } .doc-next{ left:-6px; } }
 
 /* ---------- Why us ---------- */
 .why-item{ display:flex; gap:1.1rem; align-items:flex-start; padding:1.4rem 0; border-bottom:1px solid var(--line-soft); }
@@ -848,19 +857,25 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
     <div class="doctor-toolbar">
       <select id="doctorSpecFilter">
         <option value="all" data-ar="كل التخصصات" data-en="All specialties">كل التخصصات</option>
-        <option value="dental" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</option>
-        <option value="internal" data-ar="الباطنة" data-en="Internal Medicine">الباطنة</option>
       </select>
       <select id="doctorDayFilter">
         <option value="all" data-ar="كل الأيام" data-en="All days">كل الأيام</option>
         <option value="sat" data-ar="السبت" data-en="Saturday">السبت</option>
         <option value="sun" data-ar="الأحد" data-en="Sunday">الأحد</option>
         <option value="mon" data-ar="الاثنين" data-en="Monday">الاثنين</option>
+        <option value="tue" data-ar="الثلاثاء" data-en="Tuesday">الثلاثاء</option>
+        <option value="wed" data-ar="الأربعاء" data-en="Wednesday">الأربعاء</option>
+        <option value="thu" data-ar="الخميس" data-en="Thursday">الخميس</option>
+        <option value="fri" data-ar="الجمعة" data-en="Friday">الجمعة</option>
       </select>
     </div>
 
-    <div class="grid-4">
-      <div class="doctor-card" data-spec="dental">
+    <!-- Doctors slider: to add a doctor, copy one .doctor-card block inside .doc-track
+         (set data-spec / data-spec-ar / data-spec-en / data-days). Filters build themselves. -->
+    <div class="doc-slider">
+      <button type="button" class="doc-nav doc-prev" aria-label="السابق">&#8250;</button>
+      <div class="doc-track" id="docTrack">
+      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry">
         <div class="doctor-photo">
           <img src="assets/dr-khaled-mansour.jpg" alt="د. خالد منصور" style="width:100%; height:100%; object-fit:cover;">
         </div>
@@ -875,56 +890,23 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
           </div>
         </div>
       </div>
-      <div class="doctor-card" data-spec="dental" data-days="sun,mon">
-        <div class="doctor-photo">
-          <div><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-          <p style="margin-top:.5rem" data-ar="صورة الطبيب" data-en="Doctor photo">صورة الطبيب</p></div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry" data-days="sun,tue,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-gamal-abdelazim.jpg" alt="د. جمال عبد العظيم — استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="doctor-info">
-          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
-          <h3 data-ar="د. [اسم الطبيب]" data-en="Dr. [Doctor Name]">د. [اسم الطبيب]</h3>
-          <span class="deg" data-ar="[الدرجة العلمية المؤكدة]" data-en="[Verified qualification]">[الدرجة العلمية المؤكدة]</span>
-          <p data-ar="[نبذة قصيرة عن الطبيب وخبراته]" data-en="[Short bio about the doctor and their experience]">[نبذة قصيرة عن الطبيب وخبراته]</p>
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. جمال عبد العظيم" data-en="Dr. Gamal Abdel Azim">د. جمال عبد العظيم</h3>
+          <span class="deg" data-ar="استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان" data-en="Consultant of Neurology, Psychiatry &amp; Addiction Treatment">استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان</span>
+          <p data-ar="المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً" data-en="Clinic hours: Sun, Tue &amp; Thu, 7–9 pm">المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً</p>
           <div class="doctor-actions">
-            <a href="doctor-template.html" class="btn btn-outline btn-sm" data-ar="الملف الشخصي" data-en="Profile">الملف الشخصي</a>
-            <a href="#book" class="btn btn-primary btn-sm" data-ar="احجز" data-en="Book">احجز</a>
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AC%D9%85%D8%A7%D9%84%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B9%D8%B8%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
           </div>
         </div>
       </div>
-      <div class="doctor-card" data-spec="internal" data-days="sat,sun">
-        <div class="doctor-photo">
-          <div><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-          <p style="margin-top:.5rem" data-ar="صورة الطبيب" data-en="Doctor photo">صورة الطبيب</p></div>
-        </div>
-        <div class="doctor-info">
-          <span class="spec" data-ar="الباطنة" data-en="Internal Medicine">الباطنة</span>
-          <h3 data-ar="د. [اسم الطبيب]" data-en="Dr. [Doctor Name]">د. [اسم الطبيب]</h3>
-          <span class="deg" data-ar="[الدرجة العلمية المؤكدة]" data-en="[Verified qualification]">[الدرجة العلمية المؤكدة]</span>
-          <p data-ar="[نبذة قصيرة عن الطبيب وخبراته]" data-en="[Short bio about the doctor and their experience]">[نبذة قصيرة عن الطبيب وخبراته]</p>
-          <div class="doctor-actions">
-            <a href="doctor-template.html" class="btn btn-outline btn-sm" data-ar="الملف الشخصي" data-en="Profile">الملف الشخصي</a>
-            <a href="#book" class="btn btn-primary btn-sm" data-ar="احجز" data-en="Book">احجز</a>
-          </div>
-        </div>
       </div>
-      <div class="doctor-card" data-spec="internal" data-days="mon">
-        <div class="doctor-photo">
-          <div><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-          <p style="margin-top:.5rem" data-ar="صورة الطبيب" data-en="Doctor photo">صورة الطبيب</p></div>
-        </div>
-        <div class="doctor-info">
-          <span class="spec" data-ar="الباطنة" data-en="Internal Medicine">الباطنة</span>
-          <h3 data-ar="د. [اسم الطبيب]" data-en="Dr. [Doctor Name]">د. [اسم الطبيب]</h3>
-          <span class="deg" data-ar="[الدرجة العلمية المؤكدة]" data-en="[Verified qualification]">[الدرجة العلمية المؤكدة]</span>
-          <p data-ar="[نبذة قصيرة عن الطبيب وخبراته]" data-en="[Short bio about the doctor and their experience]">[نبذة قصيرة عن الطبيب وخبراته]</p>
-          <div class="doctor-actions">
-            <a href="doctor-template.html" class="btn btn-outline btn-sm" data-ar="الملف الشخصي" data-en="Profile">الملف الشخصي</a>
-            <a href="#book" class="btn btn-primary btn-sm" data-ar="احجز" data-en="Book">احجز</a>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="doc-nav doc-next" aria-label="التالي">&#8249;</button>
     </div>
-    <p style="text-align:center; margin-top:2rem; font-size:.85rem;" data-ar="ملحوظة: بطاقة د. خالد منصور ببيانات حقيقية؛ بقية البطاقات نموذجية وتُستبدل ببيانات باقي الأطباء الـ82 وصورهم." data-en="Note: Dr. Khaled Mansour's card uses real data; the remaining cards are samples to be replaced with the other 82 doctors' real data and photos.">ملحوظة: بطاقة د. خالد منصور ببيانات حقيقية؛ بقية البطاقات نموذجية وتُستبدل ببيانات باقي الأطباء الـ82 وصورهم.</p>
   </div>
 </section>
 
@@ -1348,20 +1330,49 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 
-  /* Doctor filter (specialty / day) — client-side show/hide, static demo */
+  /* Doctors slider + filters (specialty list is built from the cards themselves) */
   var specFilter = document.getElementById('doctorSpecFilter');
   var dayFilter = document.getElementById('doctorDayFilter');
+  var docTrack = document.getElementById('docTrack');
+  if (specFilter && docTrack) {
+    var seen = {};
+    docTrack.querySelectorAll('.doctor-card[data-spec]').forEach(function(c){
+      var k = c.dataset.spec; if (seen[k]) return; seen[k] = 1;
+      var o = document.createElement('option'); o.value = k;
+      o.setAttribute('data-ar', c.dataset.specAr || k); o.setAttribute('data-en', c.dataset.specEn || k);
+      o.textContent = (document.documentElement.lang === 'en' ? c.dataset.specEn : c.dataset.specAr) || k;
+      specFilter.appendChild(o);
+    });
+  }
   function filterDoctors(){
     var spec = specFilter ? specFilter.value : 'all';
     var day = dayFilter ? dayFilter.value : 'all';
     document.querySelectorAll('.doctor-card').forEach(function(card){
       var matchSpec = spec === 'all' || card.dataset.spec === spec;
-      var matchDay = day === 'all' || (card.dataset.days || '').includes(day);
+      var matchDay = day === 'all' || (card.dataset.days || '').split(',').indexOf(day) > -1;
       card.style.display = (matchSpec && matchDay) ? '' : 'none';
     });
+    if (docTrack) docTrack.scrollTo({left:0});
   }
   if(specFilter) specFilter.addEventListener('change', filterDoctors);
   if(dayFilter) dayFilter.addEventListener('change', filterDoctors);
+  if (docTrack) {
+    var isRTL = function(){ return getComputedStyle(docTrack).direction === 'rtl'; };
+    var step = function(){ var c = docTrack.querySelector('.doctor-card:not([style*="none"])'); return c ? c.getBoundingClientRect().width + 22 : 300; };
+    var move = function(dir){ /* dir: +1 = next */
+      var atEnd = Math.abs(docTrack.scrollLeft) + docTrack.clientWidth >= docTrack.scrollWidth - 6;
+      if (dir > 0 && atEnd) { docTrack.scrollTo({left:0}); return; }
+      docTrack.scrollBy({left: (isRTL() ? -1 : 1) * dir * step()});
+    };
+    var nx = document.querySelector('.doc-next'), pv = document.querySelector('.doc-prev');
+    if (nx) nx.addEventListener('click', function(){ move(1); });
+    if (pv) pv.addEventListener('click', function(){ move(-1); });
+    var hover = false, timer = setInterval(function(){ if (!hover && !document.hidden) move(1); }, 3500);
+    ['mouseenter','touchstart','focusin'].forEach(function(e){ docTrack.addEventListener(e, function(){ hover = true; }, {passive:true}); });
+    ['mouseleave','touchend','focusout'].forEach(function(e){ docTrack.addEventListener(e, function(){ setTimeout(function(){ hover = false; }, 4000); }, {passive:true}); });
+    var toggleNav = function(){ var fits = docTrack.scrollWidth <= docTrack.clientWidth + 4; [nx,pv].forEach(function(b){ if(b) b.style.display = fits ? 'none' : ''; }); };
+    toggleNav(); window.addEventListener('resize', toggleNav); if (specFilter) specFilter.addEventListener('change', toggleNav); if (dayFilter) dayFilter.addEventListener('change', toggleNav);
+  }
 
   /* Booking form submit — builds a WhatsApp message from the filled fields
      and opens it in a new tab addressed to the center's WhatsApp number.
