@@ -355,6 +355,7 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
 .doctor-info h3{ margin-bottom:0; font-size:1.1rem; }
 .doctor-info .deg{ font-size:.82rem; color:var(--ink-faint); }
 .doctor-info p{ font-size:.88rem; margin:.3rem 0; }
+.doctor-info p.sub{ font-size:.8rem; color:var(--ink-faint); margin:0; }
 .doctor-actions{ display:flex; gap:.6rem; margin-top:auto; padding-top:.6rem; }
 .doc-slider{ position:relative; }
 .doc-track{ display:flex; gap:1.4rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; padding:.3rem .2rem 1rem; }
@@ -745,7 +746,7 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
 <section class="bg-teal section-tight">
   <div class="container">
     <div class="stats-bar">
-      <div class="stat"><span class="num">82+</span><span class="lbl" data-ar="طبيب ومتخصص" data-en="Doctors &amp; Specialists">طبيب ومتخصص</span></div>
+      <div class="stat"><span class="num">60+</span><span class="lbl" data-ar="طبيب ومتخصص" data-en="Doctors &amp; Specialists">طبيب ومتخصص</span></div>
       <div class="stat"><span class="num">25+</span><span class="lbl" data-ar="تخصص طبي" data-en="Medical Specialties">تخصص طبي</span></div>
       <div class="stat"><span class="num">20,000+</span><span class="lbl" data-ar="مريض تمت رعايته" data-en="Patients Cared For">مريض تمت رعايته</span></div>
       <div class="stat"><span class="num">14+</span><span class="lbl" data-ar="سنوات من الرعاية" data-en="Years of Care">سنوات من الرعاية</span></div>
@@ -855,6 +856,7 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
     </div>
 
     <div class="doctor-toolbar">
+      <input type="search" id="doctorSearch" placeholder="ابحث باسم الطبيب" data-ph-ar="ابحث باسم الطبيب" data-ph-en="Search by doctor name" style="border:1.5px solid var(--line); border-radius:999px; padding:.6rem 1.2rem; background:var(--surface); font-weight:600; font-size:.9rem; min-width:200px;">
       <select id="doctorSpecFilter">
         <option value="all" data-ar="كل التخصصات" data-en="All specialties">كل التخصصات</option>
       </select>
@@ -875,18 +877,633 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
     <div class="doc-slider">
       <button type="button" class="doc-nav doc-prev" aria-label="السابق">&#8250;</button>
       <div class="doc-track" id="docTrack">
-      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry">
-        <div class="doctor-photo">
-          <img src="assets/dr-khaled-mansour.jpg" alt="د. خالد منصور" style="width:100%; height:100%; object-fit:cover;">
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics" data-days="sun,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-amira-abdelalim.jpg" alt="د. أميرة عبد العليم — استشاري طب الأطفال" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="doctor-info">
-          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
-          <h3 data-ar="د. خالد منصور" data-en="Dr. Khaled Mansour">د. خالد منصور</h3>
-          <span class="deg" data-ar="استشاري أسنان" data-en="Dental Consultant">استشاري أسنان</span>
-          <p data-ar="معيد بكلية طب الأسنان، وعضو الجمعية المصرية لجراحة الفم والوجه والفكين وعضو الجمعية المصرية لزراعة الأسنان." data-en="Teaching assistant at the Faculty of Dentistry; member of the Egyptian Association of Oral and Maxillofacial Surgery and the Egyptian Society for Dental Implants.">معيد بكلية طب الأسنان، وعضو الجمعية المصرية لجراحة الفم والوجه والفكين وعضو الجمعية المصرية لزراعة الأسنان.</p>
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. أميرة عبد العليم" data-en="Dr. Amira Abdel Alim">د. أميرة عبد العليم</h3>
+          <span class="deg" data-ar="استشاري طب الأطفال" data-en="Consultant – Pediatrics">استشاري طب الأطفال</span>
+          
+          <p data-ar="المواعيد: الأحد والأربعاء، من 5 لـ 7 مساءً" data-en="Clinic days: Sun, Wed">المواعيد: الأحد والأربعاء، من 5 لـ 7 مساءً</p>
           <div class="doctor-actions">
-            <a href="dr-khaled-mansour.html" class="btn btn-outline btn-sm" data-ar="الملف الشخصي" data-en="Profile">الملف الشخصي</a>
-            <a href="#book" class="btn btn-primary btn-sm" data-ar="احجز" data-en="Book">احجز</a>
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D9%85%D9%8A%D8%B1%D8%A9%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics" data-days="sat,sun,mon,tue,wed,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-medhat-shehata.jpg" alt="د. مدحت شحاتة ثابت — استشاري طب الأطفال" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. مدحت شحاتة ثابت" data-en="Dr. Medhat Shehata Sabet">د. مدحت شحاتة ثابت</h3>
+          <span class="deg" data-ar="استشاري طب الأطفال" data-en="Consultant – Pediatrics">استشاري طب الأطفال</span>
+          
+          <p data-ar="المواعيد: السبت من 2 لـ 4 مساءً، الأحد من 2 لـ 4 مساءً، الاثنين من 8 لـ 10 مساءً، الثلاثاء من 8 لـ 10 مساءً، الأربعاء من 2 لـ 4 مساءً، الخميس من 8 لـ 10 مساءً" data-en="Clinic days: Sat, Sun, Mon, Tue, Wed, Thu">المواعيد: السبت من 2 لـ 4 مساءً، الأحد من 2 لـ 4 مساءً، الاثنين من 8 لـ 10 مساءً، الثلاثاء من 8 لـ 10 مساءً، الأربعاء من 2 لـ 4 مساءً، الخميس من 8 لـ 10 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AF%D8%AD%D8%AA%20%D8%B4%D8%AD%D8%A7%D8%AA%D8%A9%20%D8%AB%D8%A7%D8%A8%D8%AA" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics" data-days="mon,tue,wed,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-amr-mohamed-ibrahim.jpg" alt="د. عمرو محمد إبراهيم — استشاري طب الأطفال وحديثي الولادة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. عمرو محمد إبراهيم" data-en="Dr. Amr Mohamed Ibrahim">د. عمرو محمد إبراهيم</h3>
+          <span class="deg" data-ar="استشاري طب الأطفال وحديثي الولادة" data-en="Consultant – Pediatrics">استشاري طب الأطفال وحديثي الولادة</span>
+          
+          <p data-ar="المواعيد: الاثنين والثلاثاء والأربعاء والخميس، من 5 لـ 7 مساءً" data-en="Clinic days: Mon, Tue, Wed, Thu">المواعيد: الاثنين والثلاثاء والأربعاء والخميس، من 5 لـ 7 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B9%D9%85%D8%B1%D9%88%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics" data-days="sun,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ali-ramadan.jpg" alt="د. علي رمضان إبراهيم — استشاري أول طب الأطفال وحديثي الولادة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. علي رمضان إبراهيم" data-en="Dr. Ali Ramadan Ibrahim">د. علي رمضان إبراهيم</h3>
+          <span class="deg" data-ar="استشاري أول طب الأطفال وحديثي الولادة" data-en="Senior Consultant – Pediatrics">استشاري أول طب الأطفال وحديثي الولادة</span>
+          <p class="sub" data-ar="بمستشفى الشرطة، الدخول بأسبقية الحضور" data-en="بمستشفى الشرطة، الدخول بأسبقية الحضور">بمستشفى الشرطة، الدخول بأسبقية الحضور</p>
+          <p data-ar="المواعيد: الأحد والأربعاء، من 6 لـ 9 مساءً" data-en="Clinic days: Sun, Wed">المواعيد: الأحد والأربعاء، من 6 لـ 9 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B9%D9%84%D9%8A%20%D8%B1%D9%85%D8%B6%D8%A7%D9%86%20%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-islam-sabry.jpg" alt="د. إسلام صبري — أخصائي طب الأطفال وحديثي الولادة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. إسلام صبري" data-en="Dr. Islam Sabry">د. إسلام صبري</h3>
+          <span class="deg" data-ar="أخصائي طب الأطفال وحديثي الولادة" data-en="Specialist – Pediatrics">أخصائي طب الأطفال وحديثي الولادة</span>
+          <p class="sub" data-ar="ماجستير طب الأطفال" data-en="ماجستير طب الأطفال">ماجستير طب الأطفال</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A5%D8%B3%D9%84%D8%A7%D9%85%20%D8%B5%D8%A8%D8%B1%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="peds" data-spec-ar="طب الأطفال" data-spec-en="Pediatrics" data-days="sat,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-amira-roshdy.jpg" alt="د. أميرة رشدي عزيز — استشاري أول طب الأطفال" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأطفال" data-en="Pediatrics">طب الأطفال</span>
+          <h3 data-ar="د. أميرة رشدي عزيز" data-en="Dr. Amira Roshdy Aziz">د. أميرة رشدي عزيز</h3>
+          <span class="deg" data-ar="استشاري أول طب الأطفال" data-en="Senior Consultant – Pediatrics">استشاري أول طب الأطفال</span>
+          
+          <p data-ar="المواعيد: السبت والأربعاء، من 6 لـ 7 مساءً" data-en="Clinic days: Sat, Wed">المواعيد: السبت والأربعاء، من 6 لـ 7 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D9%85%D9%8A%D8%B1%D8%A9%20%D8%B1%D8%B4%D8%AF%D9%8A%20%D8%B9%D8%B2%D9%8A%D8%B2" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="obgyn" data-spec-ar="النساء والتوليد" data-spec-en="Obstetrics &amp; Gynecology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-elramly.jpg" alt="د. محمد حسن الرملي — استشاري أمراض النساء والتوليد والأورام النسائية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="النساء والتوليد" data-en="Obstetrics &amp; Gynecology">النساء والتوليد</span>
+          <h3 data-ar="د. محمد حسن الرملي" data-en="Dr. Mohamed Hassan El-Ramly">د. محمد حسن الرملي</h3>
+          <span class="deg" data-ar="استشاري أمراض النساء والتوليد والأورام النسائية" data-en="Consultant – Obstetrics &amp; Gynecology">استشاري أمراض النساء والتوليد والأورام النسائية</span>
+          <p class="sub" data-ar="دكتوراة وزمالة الكلية الملكية البريطانية لأمراض النساء والتوليد" data-en="دكتوراة وزمالة الكلية الملكية البريطانية لأمراض النساء والتوليد">دكتوراة وزمالة الكلية الملكية البريطانية لأمراض النساء والتوليد</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%AD%D8%B3%D9%86%20%D8%A7%D9%84%D8%B1%D9%85%D9%84%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="obgyn" data-spec-ar="النساء والتوليد" data-spec-en="Obstetrics &amp; Gynecology" data-days="mon,tue,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-mahmoud.jpg" alt="د. محمد محمود — استشاري أمراض النساء والتوليد" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="النساء والتوليد" data-en="Obstetrics &amp; Gynecology">النساء والتوليد</span>
+          <h3 data-ar="د. محمد محمود" data-en="Dr. Mohamed Mahmoud">د. محمد محمود</h3>
+          <span class="deg" data-ar="استشاري أمراض النساء والتوليد" data-en="Consultant – Obstetrics &amp; Gynecology">استشاري أمراض النساء والتوليد</span>
+          <p class="sub" data-ar="السونار رباعي الأبعاد 4D وأورام النساء" data-en="السونار رباعي الأبعاد 4D وأورام النساء">السونار رباعي الأبعاد 4D وأورام النساء</p>
+          <p data-ar="المواعيد: الاثنين والثلاثاء والخميس، من 4 لـ 6 مساءً" data-en="Clinic days: Mon, Tue, Thu">المواعيد: الاثنين والثلاثاء والخميس، من 4 لـ 6 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D9%88%D8%AF" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="obgyn" data-spec-ar="النساء والتوليد" data-spec-en="Obstetrics &amp; Gynecology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-randa-refaat.jpg" alt="د. رندا رفعت — استشاري أول أمراض النساء والتوليد" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="النساء والتوليد" data-en="Obstetrics &amp; Gynecology">النساء والتوليد</span>
+          <h3 data-ar="د. رندا رفعت" data-en="Dr. Randa Refaat">د. رندا رفعت</h3>
+          <span class="deg" data-ar="استشاري أول أمراض النساء والتوليد" data-en="Senior Consultant – Obstetrics &amp; Gynecology">استشاري أول أمراض النساء والتوليد</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B1%D9%86%D8%AF%D8%A7%20%D8%B1%D9%81%D8%B9%D8%AA" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="internal" data-spec-ar="الباطنة والجهاز الهضمي" data-spec-en="Internal Medicine &amp; GI">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-yehia.jpg" alt="د. أحمد يحيى محمد محمد — استشاري أمراض الكلى والغدد الصماء والسكر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الباطنة والجهاز الهضمي" data-en="Internal Medicine &amp; GI">الباطنة والجهاز الهضمي</span>
+          <h3 data-ar="د. أحمد يحيى محمد محمد" data-en="Dr. Ahmed Yehia">د. أحمد يحيى محمد محمد</h3>
+          <span class="deg" data-ar="استشاري أمراض الكلى والغدد الصماء والسكر" data-en="Consultant – Internal Medicine &amp; GI">استشاري أمراض الكلى والغدد الصماء والسكر</span>
+          <p class="sub" data-ar="دكتوراة أمراض الباطنة العامة، عضو الجمعية المصرية لأمراض وزراعة الكلى" data-en="دكتوراة أمراض الباطنة العامة، عضو الجمعية المصرية لأمراض وزراعة الكلى">دكتوراة أمراض الباطنة العامة، عضو الجمعية المصرية لأمراض وزراعة الكلى</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D9%8A%D8%AD%D9%8A%D9%89%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="internal" data-spec-ar="الباطنة والجهاز الهضمي" data-spec-en="Internal Medicine &amp; GI">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mai-amir.jpg" alt="د. مي أمير — أخصائي أمراض الباطنة والدم" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الباطنة والجهاز الهضمي" data-en="Internal Medicine &amp; GI">الباطنة والجهاز الهضمي</span>
+          <h3 data-ar="د. مي أمير" data-en="Dr. Mai Amir">د. مي أمير</h3>
+          <span class="deg" data-ar="أخصائي أمراض الباطنة والدم" data-en="Specialist – Internal Medicine &amp; GI">أخصائي أمراض الباطنة والدم</span>
+          <p class="sub" data-ar="متابعة السكر والضغط، تشخيص وعلاج أمراض الجهاز الهضمي والكبد، متابعة الأنيميا وخلل الصفائح الدموية وأمراض الدم" data-en="متابعة السكر والضغط، تشخيص وعلاج أمراض الجهاز الهضمي والكبد، متابعة الأنيميا وخلل الصفائح الدموية وأمراض الدم">متابعة السكر والضغط، تشخيص وعلاج أمراض الجهاز الهضمي والكبد، متابعة الأنيميا وخلل الصفائح الدموية وأمراض الدم</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D9%8A%20%D8%A3%D9%85%D9%8A%D8%B1" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="internal" data-spec-ar="الباطنة والجهاز الهضمي" data-spec-en="Internal Medicine &amp; GI">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-amr-elsharmasly.jpg" alt="د. عمرو علي محمد الشرمسلي — استشاري الباطنة والغدد الصماء والسكر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الباطنة والجهاز الهضمي" data-en="Internal Medicine &amp; GI">الباطنة والجهاز الهضمي</span>
+          <h3 data-ar="د. عمرو علي محمد الشرمسلي" data-en="Dr. Amr El-Sharmasly">د. عمرو علي محمد الشرمسلي</h3>
+          <span class="deg" data-ar="استشاري الباطنة والغدد الصماء والسكر" data-en="Consultant – Internal Medicine &amp; GI">استشاري الباطنة والغدد الصماء والسكر</span>
+          <p class="sub" data-ar="دكتوراة أمراض الباطنة – جامعة عين شمس، مدرس بكلية الطب – جامعة حلوان، عضو الكلية الملكية البريطانية لأمراض الباطنة، وللغدد الصماء والسكر" data-en="دكتوراة أمراض الباطنة – جامعة عين شمس، مدرس بكلية الطب – جامعة حلوان، عضو الكلية الملكية البريطانية لأمراض الباطنة، وللغدد الصماء والسكر">دكتوراة أمراض الباطنة – جامعة عين شمس، مدرس بكلية الطب – جامعة حلوان، عضو الكلية الملكية البريطانية لأمراض الباطنة، وللغدد الصماء والسكر</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B9%D9%85%D8%B1%D9%88%20%D8%B9%D9%84%D9%8A%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B4%D8%B1%D9%85%D8%B3%D9%84%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="internal" data-spec-ar="الباطنة والجهاز الهضمي" data-spec-en="Internal Medicine &amp; GI">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-abbas-radwan.jpg" alt="د. أحمد عباس رضوان — استشاري أمراض الجهاز الهضمي والكبد والمناظير" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الباطنة والجهاز الهضمي" data-en="Internal Medicine &amp; GI">الباطنة والجهاز الهضمي</span>
+          <h3 data-ar="د. أحمد عباس رضوان" data-en="Dr. Ahmed Abbas Radwan">د. أحمد عباس رضوان</h3>
+          <span class="deg" data-ar="استشاري أمراض الجهاز الهضمي والكبد والمناظير" data-en="Consultant – Internal Medicine &amp; GI">استشاري أمراض الجهاز الهضمي والكبد والمناظير</span>
+          <p class="sub" data-ar="ماجستير ودكتوراة الباطنة العامة، الزمالة المصرية لأمراض الجهاز الهضمي والكبد، عضو الجمعية المصرية لأمراض الجهاز الهضمي والكبد" data-en="ماجستير ودكتوراة الباطنة العامة، الزمالة المصرية لأمراض الجهاز الهضمي والكبد، عضو الجمعية المصرية لأمراض الجهاز الهضمي والكبد">ماجستير ودكتوراة الباطنة العامة، الزمالة المصرية لأمراض الجهاز الهضمي والكبد، عضو الجمعية المصرية لأمراض الجهاز الهضمي والكبد</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B9%D8%A8%D8%A7%D8%B3%20%D8%B1%D8%B6%D9%88%D8%A7%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="internal" data-spec-ar="الباطنة والجهاز الهضمي" data-spec-en="Internal Medicine &amp; GI">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-elborolossy.jpg" alt="د. أحمد البرلسي — استشاري الباطنة والجهاز الهضمي والمناظير" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الباطنة والجهاز الهضمي" data-en="Internal Medicine &amp; GI">الباطنة والجهاز الهضمي</span>
+          <h3 data-ar="د. أحمد البرلسي" data-en="Dr. Ahmed El-Borolossy">د. أحمد البرلسي</h3>
+          <span class="deg" data-ar="استشاري الباطنة والجهاز الهضمي والمناظير" data-en="Consultant – Internal Medicine &amp; GI">استشاري الباطنة والجهاز الهضمي والمناظير</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%A8%D8%B1%D9%84%D8%B3%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery" data-days="tue,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-samy-abdelmoneim.jpg" alt="د. سامي عبد المنعم يوسف — استشاري الجراحة العامة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. سامي عبد المنعم يوسف" data-en="Dr. Samy Abdel Moneim Youssef">د. سامي عبد المنعم يوسف</h3>
+          <span class="deg" data-ar="استشاري الجراحة العامة" data-en="Consultant – Surgery">استشاري الجراحة العامة</span>
+          
+          <p data-ar="المواعيد: الثلاثاء من 4 لـ 9 مساءً، الأربعاء من 6 لـ 9 مساءً" data-en="Clinic days: Tue, Wed">المواعيد: الثلاثاء من 4 لـ 9 مساءً، الأربعاء من 6 لـ 9 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B3%D8%A7%D9%85%D9%8A%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D9%85%D9%86%D8%B9%D9%85%20%D9%8A%D9%88%D8%B3%D9%81" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery" data-days="sat,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-john-gamil-touma.jpg" alt="د. جون جميل توما — استشاري الجراحة العامة وجراحة الأورام" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. جون جميل توما" data-en="Dr. John Gamil Touma">د. جون جميل توما</h3>
+          <span class="deg" data-ar="استشاري الجراحة العامة وجراحة الأورام" data-en="Consultant – Surgery">استشاري الجراحة العامة وجراحة الأورام</span>
+          <p class="sub" data-ar="زميل الكلية الملكية للجراحين بإنجلترا" data-en="زميل الكلية الملكية للجراحين بإنجلترا">زميل الكلية الملكية للجراحين بإنجلترا</p>
+          <p data-ar="المواعيد: السبت والأربعاء، من 5:30 لـ 7:30 مساءً" data-en="Clinic days: Sat, Wed">المواعيد: السبت والأربعاء، من 5:30 لـ 7:30 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AC%D9%88%D9%86%20%D8%AC%D9%85%D9%8A%D9%84%20%D8%AA%D9%88%D9%85%D8%A7" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery" data-days="sun,tue">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-adel-abbas.jpg" alt="د. عادل عباس — استشاري الجراحة العامة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. عادل عباس" data-en="Dr. Adel Abbas">د. عادل عباس</h3>
+          <span class="deg" data-ar="استشاري الجراحة العامة" data-en="Consultant – Surgery">استشاري الجراحة العامة</span>
+          <p class="sub" data-ar="بمستشفيات القوات المسلحة" data-en="بمستشفيات القوات المسلحة">بمستشفيات القوات المسلحة</p>
+          <p data-ar="المواعيد: الأحد والثلاثاء، من 7:30 مساءً" data-en="Clinic days: Sun, Tue">المواعيد: الأحد والثلاثاء، من 7:30 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B9%D8%A7%D8%AF%D9%84%20%D8%B9%D8%A8%D8%A7%D8%B3" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-hatem-sayed-saber.jpg" alt="د. حاتم سيد صابر — استشاري جراحات الكبد والقنوات المرارية والبنكرياس" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. حاتم سيد صابر" data-en="Dr. Hatem Sayed Saber">د. حاتم سيد صابر</h3>
+          <span class="deg" data-ar="استشاري جراحات الكبد والقنوات المرارية والبنكرياس" data-en="Consultant – Surgery">استشاري جراحات الكبد والقنوات المرارية والبنكرياس</span>
+          <p class="sub" data-ar="عضو فريق زراعة الكبد، مدرس الجراحة العامة والأورام والمناظير – طب عين شمس، مدير وحدة جراحة الكبد والبنكرياس بمستشفى الدمرداش، نائب رئيس قسم زراعة الكبد بمستشفى القاهرة الفاطمية، زميل جامعة يينا – ألمانيا" data-en="عضو فريق زراعة الكبد، مدرس الجراحة العامة والأورام والمناظير – طب عين شمس، مدير وحدة جراحة الكبد والبنكرياس بمستشفى الدمرداش، نائب رئيس قسم زراعة الكبد بمستشفى القاهرة الفاطمية، زميل جامعة يينا – ألمانيا">عضو فريق زراعة الكبد، مدرس الجراحة العامة والأورام والمناظير – طب عين شمس، مدير وحدة جراحة الكبد والبنكرياس بمستشفى الدمرداش، نائب رئيس قسم زراعة الكبد بمستشفى القاهرة الفاطمية، زميل جامعة يينا – ألمانيا</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AD%D8%A7%D8%AA%D9%85%20%D8%B3%D9%8A%D8%AF%20%D8%B5%D8%A7%D8%A8%D8%B1" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-abdelsalam-surgery.jpg" alt="د. محمد عبد السلام — الجراحة العامة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. محمد عبد السلام" data-en="Dr. Mohamed Abdel Salam">د. محمد عبد السلام</h3>
+          <span class="deg" data-ar="الجراحة العامة" data-en="Doctor – Surgery">الجراحة العامة</span>
+          <p class="sub" data-ar="رئيس أقسام الجراحة بمستشفى القاهرة الجديدة، عضو جمعية الجراحين المصرية" data-en="رئيس أقسام الجراحة بمستشفى القاهرة الجديدة، عضو جمعية الجراحين المصرية">رئيس أقسام الجراحة بمستشفى القاهرة الجديدة، عضو جمعية الجراحين المصرية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-elanany.jpg" alt="د. محمد العناني — أستاذ الجراحة العامة والأورام والمناظير" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. محمد العناني" data-en="Dr. Mohamed El-Anany">د. محمد العناني</h3>
+          <span class="deg" data-ar="أستاذ الجراحة العامة والأورام والمناظير" data-en="Professor – Surgery">أستاذ الجراحة العامة والأورام والمناظير</span>
+          <p class="sub" data-ar="جراحات الثدي والغدد والقولون والشرج والسمنة" data-en="جراحات الثدي والغدد والقولون والشرج والسمنة">جراحات الثدي والغدد والقولون والشرج والسمنة</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B9%D9%86%D8%A7%D9%86%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="surgery" data-spec-ar="الجراحة" data-spec-en="Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-ouf.jpg" alt="د. أحمد عوف — استشاري الجراحة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجراحة" data-en="Surgery">الجراحة</span>
+          <h3 data-ar="د. أحمد عوف" data-en="Dr. Ahmed Ouf">د. أحمد عوف</h3>
+          <span class="deg" data-ar="استشاري الجراحة" data-en="Consultant – Surgery">استشاري الجراحة</span>
+          <p class="sub" data-ar="مدير الطوارئ بمستشفى السلام" data-en="مدير الطوارئ بمستشفى السلام">مدير الطوارئ بمستشفى السلام</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B9%D9%88%D9%81" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="onco" data-spec-ar="الأورام" data-spec-en="Oncology" data-days="sat,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-michael-farid.jpg" alt="د. مايكل فريد فؤاد — استشاري جراحة الأورام" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأورام" data-en="Oncology">الأورام</span>
+          <h3 data-ar="د. مايكل فريد فؤاد" data-en="Dr. Michael Farid Fouad">د. مايكل فريد فؤاد</h3>
+          <span class="deg" data-ar="استشاري جراحة الأورام" data-en="Consultant – Oncology">استشاري جراحة الأورام</span>
+          <p class="sub" data-ar="مدرس جراحة الأورام بالمعهد القومي للأورام – جامعة القاهرة، عضو الجمعية المصرية لجراحة الأورام" data-en="مدرس جراحة الأورام بالمعهد القومي للأورام – جامعة القاهرة، عضو الجمعية المصرية لجراحة الأورام">مدرس جراحة الأورام بالمعهد القومي للأورام – جامعة القاهرة، عضو الجمعية المصرية لجراحة الأورام</p>
+          <p data-ar="المواعيد: السبت والأربعاء، من 3 لـ 5 مساءً" data-en="Clinic days: Sat, Wed">المواعيد: السبت والأربعاء، من 3 لـ 5 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%A7%D9%8A%D9%83%D9%84%20%D9%81%D8%B1%D9%8A%D8%AF%20%D9%81%D8%A4%D8%A7%D8%AF" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="onco" data-spec-ar="الأورام" data-spec-en="Oncology" data-days="sun,tue">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ghada-refaat.jpg" alt="د. غادة رفعت — أستاذ مساعد علاج الأورام" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأورام" data-en="Oncology">الأورام</span>
+          <h3 data-ar="د. غادة رفعت" data-en="Dr. Ghada Refaat">د. غادة رفعت</h3>
+          <span class="deg" data-ar="أستاذ مساعد علاج الأورام" data-en="Assistant Professor – Oncology">أستاذ مساعد علاج الأورام</span>
+          <p class="sub" data-ar="الفحص والكشف المبكر عن السرطان" data-en="الفحص والكشف المبكر عن السرطان">الفحص والكشف المبكر عن السرطان</p>
+          <p data-ar="المواعيد: الأحد والثلاثاء، الساعة 8 مساءً" data-en="Clinic days: Sun, Tue">المواعيد: الأحد والثلاثاء، الساعة 8 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%BA%D8%A7%D8%AF%D8%A9%20%D8%B1%D9%81%D8%B9%D8%AA" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ortho" data-spec-ar="العظام والعلاج الطبيعي" data-spec-en="Orthopedics &amp; Physiotherapy" data-days="sat,mon,tue,wed,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-abdelaziz.jpg" alt="د. أحمد عبد العزيز — أخصائي جراحة العظام والعمود الفقري" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="العظام والعلاج الطبيعي" data-en="Orthopedics &amp; Physiotherapy">العظام والعلاج الطبيعي</span>
+          <h3 data-ar="د. أحمد عبد العزيز" data-en="Dr. Ahmed Abdel Aziz">د. أحمد عبد العزيز</h3>
+          <span class="deg" data-ar="أخصائي جراحة العظام والعمود الفقري" data-en="Specialist – Orthopedics &amp; Physiotherapy">أخصائي جراحة العظام والعمود الفقري</span>
+          
+          <p data-ar="المواعيد: السبت من 4 لـ 10 مساءً، الاثنين من 4 لـ 10 مساءً، الثلاثاء من 4 لـ 10 مساءً، الأربعاء من 7 لـ 9 مساءً، الخميس من 4 لـ 10 مساءً" data-en="Clinic days: Sat, Mon, Tue, Wed, Thu">المواعيد: السبت من 4 لـ 10 مساءً، الاثنين من 4 لـ 10 مساءً، الثلاثاء من 4 لـ 10 مساءً، الأربعاء من 7 لـ 9 مساءً، الخميس من 4 لـ 10 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B9%D8%B2%D9%8A%D8%B2" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ortho" data-spec-ar="العظام والعلاج الطبيعي" data-spec-en="Orthopedics &amp; Physiotherapy">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-hassanein.jpg" alt="د. محمد حسانين — استشاري جراحة العظام والمفاصل الصناعية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="العظام والعلاج الطبيعي" data-en="Orthopedics &amp; Physiotherapy">العظام والعلاج الطبيعي</span>
+          <h3 data-ar="د. محمد حسانين" data-en="Dr. Mohamed Hassanein">د. محمد حسانين</h3>
+          <span class="deg" data-ar="استشاري جراحة العظام والمفاصل الصناعية" data-en="Consultant – Orthopedics &amp; Physiotherapy">استشاري جراحة العظام والمفاصل الصناعية</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%AD%D8%B3%D8%A7%D9%86%D9%8A%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ortho" data-spec-ar="العظام والعلاج الطبيعي" data-spec-en="Orthopedics &amp; Physiotherapy">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-hassan-elrefaey.jpg" alt="د. أحمد حسن الرفاعي — استشاري جراحة العظام" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="العظام والعلاج الطبيعي" data-en="Orthopedics &amp; Physiotherapy">العظام والعلاج الطبيعي</span>
+          <h3 data-ar="د. أحمد حسن الرفاعي" data-en="Dr. Ahmed Hassan El-Refaey">د. أحمد حسن الرفاعي</h3>
+          <span class="deg" data-ar="استشاري جراحة العظام" data-en="Consultant – Orthopedics &amp; Physiotherapy">استشاري جراحة العظام</span>
+          <p class="sub" data-ar="العمود الفقري والمفاصل والمناظير، وعظام الأطفال" data-en="العمود الفقري والمفاصل والمناظير، وعظام الأطفال">العمود الفقري والمفاصل والمناظير، وعظام الأطفال</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%AD%D8%B3%D9%86%20%D8%A7%D9%84%D8%B1%D9%81%D8%A7%D8%B9%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ortho" data-spec-ar="العظام والعلاج الطبيعي" data-spec-en="Orthopedics &amp; Physiotherapy" data-days="sun,thu">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ali-ahmed-fathy.jpg" alt="د. علي أحمد فتحي — استشاري أول العظام" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="العظام والعلاج الطبيعي" data-en="Orthopedics &amp; Physiotherapy">العظام والعلاج الطبيعي</span>
+          <h3 data-ar="د. علي أحمد فتحي" data-en="Dr. Ali Ahmed Fathy">د. علي أحمد فتحي</h3>
+          <span class="deg" data-ar="استشاري أول العظام" data-en="Senior Consultant – Orthopedics &amp; Physiotherapy">استشاري أول العظام</span>
+          
+          <p data-ar="المواعيد: الأحد والخميس، من 8 لـ 10 مساءً" data-en="Clinic days: Sun, Thu">المواعيد: الأحد والخميس، من 8 لـ 10 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B9%D9%84%D9%8A%20%D8%A3%D8%AD%D9%85%D8%AF%20%D9%81%D8%AA%D8%AD%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ortho" data-spec-ar="العظام والعلاج الطبيعي" data-spec-en="Orthopedics &amp; Physiotherapy">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ayman-nagib.jpg" alt="د. أيمن نجيب — استشاري العلاج الطبيعي" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="العظام والعلاج الطبيعي" data-en="Orthopedics &amp; Physiotherapy">العظام والعلاج الطبيعي</span>
+          <h3 data-ar="د. أيمن نجيب" data-en="Dr. Ayman Nagib">د. أيمن نجيب</h3>
+          <span class="deg" data-ar="استشاري العلاج الطبيعي" data-en="Consultant – Orthopedics &amp; Physiotherapy">استشاري العلاج الطبيعي</span>
+          <p class="sub" data-ar="حاصل على البورد الأمريكي في العلاج الطبيعي – نيويورك، رئيس قسم العلاج الطبيعي بمستشفى الزيتون التخصصي" data-en="حاصل على البورد الأمريكي في العلاج الطبيعي – نيويورك، رئيس قسم العلاج الطبيعي بمستشفى الزيتون التخصصي">حاصل على البورد الأمريكي في العلاج الطبيعي – نيويورك، رئيس قسم العلاج الطبيعي بمستشفى الزيتون التخصصي</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D9%8A%D9%85%D9%86%20%D9%86%D8%AC%D9%8A%D8%A8" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="uro" data-spec-ar="المسالك البولية" data-spec-en="Urology" data-days="sun,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-ashraf-hazem.jpg" alt="د. محمد أشرف حازم — استشاري أول جراحة المسالك البولية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المسالك البولية" data-en="Urology">المسالك البولية</span>
+          <h3 data-ar="د. محمد أشرف حازم" data-en="Dr. Mohamed Ashraf Hazem">د. محمد أشرف حازم</h3>
+          <span class="deg" data-ar="استشاري أول جراحة المسالك البولية" data-en="Senior Consultant – Urology">استشاري أول جراحة المسالك البولية</span>
+          
+          <p data-ar="المواعيد: الأحد والأربعاء، من 6 لـ 8 مساءً" data-en="Clinic days: Sun, Wed">المواعيد: الأحد والأربعاء، من 6 لـ 8 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%A3%D8%B4%D8%B1%D9%81%20%D8%AD%D8%A7%D8%B2%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="uro" data-spec-ar="المسالك البولية" data-spec-en="Urology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-adham-shaarawy.jpg" alt="د. أدهم جمال شعراوي — استشاري أمراض الذكورة والعقم" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المسالك البولية" data-en="Urology">المسالك البولية</span>
+          <h3 data-ar="د. أدهم جمال شعراوي" data-en="Dr. Adham Gamal Shaarawy">د. أدهم جمال شعراوي</h3>
+          <span class="deg" data-ar="استشاري أمراض الذكورة والعقم" data-en="Consultant – Urology">استشاري أمراض الذكورة والعقم</span>
+          <p class="sub" data-ar="دكتوراة جراحة المسالك البولية والتناسلية، عضو الجمعية الكندية والمصرية لجراحة المسالك البولية" data-en="دكتوراة جراحة المسالك البولية والتناسلية، عضو الجمعية الكندية والمصرية لجراحة المسالك البولية">دكتوراة جراحة المسالك البولية والتناسلية، عضو الجمعية الكندية والمصرية لجراحة المسالك البولية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AF%D9%87%D9%85%20%D8%AC%D9%85%D8%A7%D9%84%20%D8%B4%D8%B9%D8%B1%D8%A7%D9%88%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="uro" data-spec-ar="المسالك البولية" data-spec-en="Urology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-elsayed-saleh.jpg" alt="د. السيد صالح — استشاري جراحات المسالك البولية والعيوب الخلقية للأطفال" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المسالك البولية" data-en="Urology">المسالك البولية</span>
+          <h3 data-ar="د. السيد صالح" data-en="Dr. El-Sayed Saleh">د. السيد صالح</h3>
+          <span class="deg" data-ar="استشاري جراحات المسالك البولية والعيوب الخلقية للأطفال" data-en="Consultant – Urology">استشاري جراحات المسالك البولية والعيوب الخلقية للأطفال</span>
+          <p class="sub" data-ar="أستاذ مساعد جراحة المسالك البولية والذكورة – طب الأزهر، دكتوراة جراحات الليزر ومناظير المسالك البولية، عضو الجمعية المصرية والأوروبية للمسالك البولية" data-en="أستاذ مساعد جراحة المسالك البولية والذكورة – طب الأزهر، دكتوراة جراحات الليزر ومناظير المسالك البولية، عضو الجمعية المصرية والأوروبية للمسالك البولية">أستاذ مساعد جراحة المسالك البولية والذكورة – طب الأزهر، دكتوراة جراحات الليزر ومناظير المسالك البولية، عضو الجمعية المصرية والأوروبية للمسالك البولية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A7%D9%84%D8%B3%D9%8A%D8%AF%20%D8%B5%D8%A7%D9%84%D8%AD" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ent" data-spec-ar="الأنف والأذن والحنجرة" data-spec-en="ENT" data-days="mon">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-elmansoury.jpg" alt="د. أحمد محمود المنصوري — أخصائي الأنف والأذن والحنجرة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأنف والأذن والحنجرة" data-en="ENT">الأنف والأذن والحنجرة</span>
+          <h3 data-ar="د. أحمد محمود المنصوري" data-en="Dr. Ahmed El-Mansoury">د. أحمد محمود المنصوري</h3>
+          <span class="deg" data-ar="أخصائي الأنف والأذن والحنجرة" data-en="Specialist – ENT">أخصائي الأنف والأذن والحنجرة</span>
+          
+          <p data-ar="المواعيد: الاثنين، من 8 لـ 9:30 مساءً" data-en="Clinic days: Mon">المواعيد: الاثنين، من 8 لـ 9:30 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%20%D8%A7%D9%84%D9%85%D9%86%D8%B5%D9%88%D8%B1%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ent" data-spec-ar="الأنف والأذن والحنجرة" data-spec-en="ENT">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-hassan-elkebir.jpg" alt="د. محمد حسن الكبير — استشاري الأنف والأذن والحنجرة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأنف والأذن والحنجرة" data-en="ENT">الأنف والأذن والحنجرة</span>
+          <h3 data-ar="د. محمد حسن الكبير" data-en="Dr. Mohamed Hassan El-Kebir">د. محمد حسن الكبير</h3>
+          <span class="deg" data-ar="استشاري الأنف والأذن والحنجرة" data-en="Consultant – ENT">استشاري الأنف والأذن والحنجرة</span>
+          <p class="sub" data-ar="جراحات الرأس والرقبة وجراحات الليزر" data-en="جراحات الرأس والرقبة وجراحات الليزر">جراحات الرأس والرقبة وجراحات الليزر</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%AD%D8%B3%D9%86%20%D8%A7%D9%84%D9%83%D8%A8%D9%8A%D8%B1" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ent" data-spec-ar="الأنف والأذن والحنجرة" data-spec-en="ENT">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-elshahawy.jpg" alt="د. أحمد الشهاوي — أخصائي الأذن والأنف والحنجرة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأنف والأذن والحنجرة" data-en="ENT">الأنف والأذن والحنجرة</span>
+          <h3 data-ar="د. أحمد الشهاوي" data-en="Dr. Ahmed El-Shahawy">د. أحمد الشهاوي</h3>
+          <span class="deg" data-ar="أخصائي الأذن والأنف والحنجرة" data-en="Specialist – ENT">أخصائي الأذن والأنف والحنجرة</span>
+          <p class="sub" data-ar="ماجستير جراحات الأذن والأنف والحنجرة – قصر العيني" data-en="ماجستير جراحات الأذن والأنف والحنجرة – قصر العيني">ماجستير جراحات الأذن والأنف والحنجرة – قصر العيني</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B4%D9%87%D8%A7%D9%88%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="ent" data-spec-ar="الأنف والأذن والحنجرة" data-spec-en="ENT">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mahmoud-abdelrahman-saleh.jpg" alt="د. محمود عبد الرحمن صالح — أستاذ الأنف والأذن والحنجرة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأنف والأذن والحنجرة" data-en="ENT">الأنف والأذن والحنجرة</span>
+          <h3 data-ar="د. محمود عبد الرحمن صالح" data-en="Dr. Mahmoud Abdel Rahman Saleh">د. محمود عبد الرحمن صالح</h3>
+          <span class="deg" data-ar="أستاذ الأنف والأذن والحنجرة" data-en="Professor – ENT">أستاذ الأنف والأذن والحنجرة</span>
+          <p class="sub" data-ar="كلية الطب – جامعة المنيا، زميل جامعة تينيسي – أمريكا" data-en="كلية الطب – جامعة المنيا، زميل جامعة تينيسي – أمريكا">كلية الطب – جامعة المنيا، زميل جامعة تينيسي – أمريكا</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86%20%D8%B5%D8%A7%D9%84%D8%AD" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="chest" data-spec-ar="الصدر" data-spec-en="Chest" data-days="wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-basant-hamza.jpg" alt="د. بسنت حمزة — استشاري الأمراض الصدرية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الصدر" data-en="Chest">الصدر</span>
+          <h3 data-ar="د. بسنت حمزة" data-en="Dr. Basant Hamza">د. بسنت حمزة</h3>
+          <span class="deg" data-ar="استشاري الأمراض الصدرية" data-en="Consultant – Chest">استشاري الأمراض الصدرية</span>
+          <p class="sub" data-ar="الدخول بأسبقية الحضور" data-en="الدخول بأسبقية الحضور">الدخول بأسبقية الحضور</p>
+          <p data-ar="المواعيد: الأربعاء، من 7 لـ 9 مساءً" data-en="Clinic days: Wed">المواعيد: الأربعاء، من 7 لـ 9 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A8%D8%B3%D9%86%D8%AA%20%D8%AD%D9%85%D8%B2%D8%A9" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="chest" data-spec-ar="الصدر" data-spec-en="Chest">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-enas-elkattan.jpg" alt="د. إيناس القطان — استشاري الأمراض الصدرية وحساسية الصدر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الصدر" data-en="Chest">الصدر</span>
+          <h3 data-ar="د. إيناس القطان" data-en="Dr. Enas El-Kattan">د. إيناس القطان</h3>
+          <span class="deg" data-ar="استشاري الأمراض الصدرية وحساسية الصدر" data-en="Consultant – Chest">استشاري الأمراض الصدرية وحساسية الصدر</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A5%D9%8A%D9%86%D8%A7%D8%B3%20%D8%A7%D9%84%D9%82%D8%B7%D8%A7%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="chest" data-spec-ar="الصدر" data-spec-en="Chest">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-abdelsalam.jpg" alt="د. محمد عبد السلام عبد الرحمن — مدرس مساعد الأمراض الصدرية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الصدر" data-en="Chest">الصدر</span>
+          <h3 data-ar="د. محمد عبد السلام عبد الرحمن" data-en="Dr. Mohamed Abdel Salam Abdel Rahman">د. محمد عبد السلام عبد الرحمن</h3>
+          <span class="deg" data-ar="مدرس مساعد الأمراض الصدرية" data-en="Assistant Lecturer – Chest">مدرس مساعد الأمراض الصدرية</span>
+          <p class="sub" data-ar="بالأكاديمية الطبية العسكرية" data-en="بالأكاديمية الطبية العسكرية">بالأكاديمية الطبية العسكرية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="chest" data-spec-ar="الصدر" data-spec-en="Chest">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-yosra.jpg" alt="د. يسرا — أمراض الصدر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الصدر" data-en="Chest">الصدر</span>
+          <h3 data-ar="د. يسرا" data-en="Dr. Yosra">د. يسرا</h3>
+          <span class="deg" data-ar="أمراض الصدر" data-en="Doctor – Chest">أمراض الصدر</span>
+          <p class="sub" data-ar="الربو · الانسداد الرئوي المزمن · الالتهاب الرئوي، انقطاع التنفس أثناء النوم · انتفاخ الرئة" data-en="الربو · الانسداد الرئوي المزمن · الالتهاب الرئوي، انقطاع التنفس أثناء النوم · انتفاخ الرئة">الربو · الانسداد الرئوي المزمن · الالتهاب الرئوي، انقطاع التنفس أثناء النوم · انتفاخ الرئة</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%8A%D8%B3%D8%B1%D8%A7" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="derma" data-spec-ar="الجلدية والتجميل" data-spec-en="Dermatology" data-days="sun,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-noha-ghoneim.jpg" alt="د. نهى غنيم — أخصائي الأمراض الجلدية والتجميل والليزر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجلدية والتجميل" data-en="Dermatology">الجلدية والتجميل</span>
+          <h3 data-ar="د. نهى غنيم" data-en="Dr. Noha Ghoneim">د. نهى غنيم</h3>
+          <span class="deg" data-ar="أخصائي الأمراض الجلدية والتجميل والليزر" data-en="Specialist – Dermatology">أخصائي الأمراض الجلدية والتجميل والليزر</span>
+          <p class="sub" data-ar="ماجستير جامعة القاهرة، الدخول بأسبقية الحضور" data-en="ماجستير جامعة القاهرة، الدخول بأسبقية الحضور">ماجستير جامعة القاهرة، الدخول بأسبقية الحضور</p>
+          <p data-ar="المواعيد: الأحد من 6 لـ 9 مساءً، الأربعاء من 4 لـ 7 مساءً" data-en="Clinic days: Sun, Wed">المواعيد: الأحد من 6 لـ 9 مساءً، الأربعاء من 4 لـ 7 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%86%D9%87%D9%89%20%D8%BA%D9%86%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="derma" data-spec-ar="الجلدية والتجميل" data-spec-en="Dermatology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-nehad-ali.jpg" alt="د. نهاد علي — استشاري الأمراض الجلدية وتجميل الجلد" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجلدية والتجميل" data-en="Dermatology">الجلدية والتجميل</span>
+          <h3 data-ar="د. نهاد علي" data-en="Dr. Nehad Ali">د. نهاد علي</h3>
+          <span class="deg" data-ar="استشاري الأمراض الجلدية وتجميل الجلد" data-en="Consultant – Dermatology">استشاري الأمراض الجلدية وتجميل الجلد</span>
+          <p class="sub" data-ar="عضو الجمعية الأمريكية للطب التجميلي AAAM" data-en="عضو الجمعية الأمريكية للطب التجميلي AAAM">عضو الجمعية الأمريكية للطب التجميلي AAAM</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%86%D9%87%D8%A7%D8%AF%20%D8%B9%D9%84%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="derma" data-spec-ar="الجلدية والتجميل" data-spec-en="Dermatology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-heba-diab.jpg" alt="د. هبة دياب — أستاذة الأمراض الجلدية وتجميل الجلد والليزر" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الجلدية والتجميل" data-en="Dermatology">الجلدية والتجميل</span>
+          <h3 data-ar="د. هبة دياب" data-en="Dr. Heba Diab">د. هبة دياب</h3>
+          <span class="deg" data-ar="أستاذة الأمراض الجلدية وتجميل الجلد والليزر" data-en="Professor – Dermatology">أستاذة الأمراض الجلدية وتجميل الجلد والليزر</span>
+          <p class="sub" data-ar="كلية طب عين شمس" data-en="كلية طب عين شمس">كلية طب عين شمس</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%87%D8%A8%D8%A9%20%D8%AF%D9%8A%D8%A7%D8%A8" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
           </div>
         </div>
       </div>
@@ -897,10 +1514,267 @@ html[dir="ltr"] .main-nav a::after{ right:auto; left:0; }
         <div class="doctor-info">
           <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
           <h3 data-ar="د. جمال عبد العظيم" data-en="Dr. Gamal Abdel Azim">د. جمال عبد العظيم</h3>
-          <span class="deg" data-ar="استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان" data-en="Consultant of Neurology, Psychiatry &amp; Addiction Treatment">استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان</span>
-          <p data-ar="المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً" data-en="Clinic hours: Sun, Tue &amp; Thu, 7–9 pm">المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً</p>
+          <span class="deg" data-ar="استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان" data-en="Consultant – Neurology &amp; Psychiatry">استشاري المخ والأعصاب والطب النفسي وعلاج الإدمان</span>
+          
+          <p data-ar="المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً" data-en="Clinic days: Sun, Tue, Thu">المواعيد: الأحد والثلاثاء والخميس، من 7 لـ 9 مساءً</p>
           <div class="doctor-actions">
             <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AC%D9%85%D8%A7%D9%84%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B9%D8%B8%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mohamed-abdelrahman-neuro.jpg" alt="د. محمد عبد الرحمن — استشاري المخ والأعصاب" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. محمد عبد الرحمن" data-en="Dr. Mohamed Abdel Rahman">د. محمد عبد الرحمن</h3>
+          <span class="deg" data-ar="استشاري المخ والأعصاب" data-en="Consultant – Neurology &amp; Psychiatry">استشاري المخ والأعصاب</span>
+          <p class="sub" data-ar="أستاذ بجامعة عين شمس" data-en="أستاذ بجامعة عين شمس">أستاذ بجامعة عين شمس</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D8%AF%20%D8%B9%D8%A8%D8%AF%20%D8%A7%D9%84%D8%B1%D8%AD%D9%85%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-mahmoud-elboushy.jpg" alt="د. محمود صبري البوشي — معالج نفسي معتمد من وزارة الصحة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. محمود صبري البوشي" data-en="Dr. Mahmoud Sabry El-Boushy">د. محمود صبري البوشي</h3>
+          <span class="deg" data-ar="معالج نفسي معتمد من وزارة الصحة" data-en="Psychotherapist – Neurology &amp; Psychiatry">معالج نفسي معتمد من وزارة الصحة</span>
+          <p class="sub" data-ar="أخصائي نفسي إكلينيكي وعلاج الإدمان واضطرابات الشخصية، ماجستير علم النفس · باحث دكتوراة في علم النفس الإكلينيكي، دبلومات العلاج المعرفي السلوكي والجدلي السلوكي، والعلاج بالتقبل والالتزام" data-en="أخصائي نفسي إكلينيكي وعلاج الإدمان واضطرابات الشخصية، ماجستير علم النفس · باحث دكتوراة في علم النفس الإكلينيكي، دبلومات العلاج المعرفي السلوكي والجدلي السلوكي، والعلاج بالتقبل والالتزام">أخصائي نفسي إكلينيكي وعلاج الإدمان واضطرابات الشخصية، ماجستير علم النفس · باحث دكتوراة في علم النفس الإكلينيكي، دبلومات العلاج المعرفي السلوكي والجدلي السلوكي، والعلاج بالتقبل والالتزام</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%85%D8%AD%D9%85%D9%88%D8%AF%20%D8%B5%D8%A8%D8%B1%D9%8A%20%D8%A7%D9%84%D8%A8%D9%88%D8%B4%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-hossam-eldin-mostafa.jpg" alt="د. حسام الدين مصطفى — أخصائي نفسي إكلينيكي" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. حسام الدين مصطفى" data-en="Dr. Hossam El-Din Mostafa">د. حسام الدين مصطفى</h3>
+          <span class="deg" data-ar="أخصائي نفسي إكلينيكي" data-en="Specialist – Neurology &amp; Psychiatry">أخصائي نفسي إكلينيكي</span>
+          <p class="sub" data-ar="عضو رابطة الأخصائيين النفسيين، عضو الجمعية المصرية للمعالجين النفسيين، مدرب معتمد من مركز البحوث والدراسات النفسية" data-en="عضو رابطة الأخصائيين النفسيين، عضو الجمعية المصرية للمعالجين النفسيين، مدرب معتمد من مركز البحوث والدراسات النفسية">عضو رابطة الأخصائيين النفسيين، عضو الجمعية المصرية للمعالجين النفسيين، مدرب معتمد من مركز البحوث والدراسات النفسية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AD%D8%B3%D8%A7%D9%85%20%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D9%85%D8%B5%D8%B7%D9%81%D9%89" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry" data-days="mon">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-nahla-amin.jpg" alt="د. نهلة أمين — معالج نفسي معتمد من وزارة الصحة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. نهلة أمين" data-en="Dr. Nahla Amin">د. نهلة أمين</h3>
+          <span class="deg" data-ar="معالج نفسي معتمد من وزارة الصحة" data-en="Psychotherapist – Neurology &amp; Psychiatry">معالج نفسي معتمد من وزارة الصحة</span>
+          <p class="sub" data-ar="دكتوراة علم النفس الإكلينيكي – آداب عين شمس، معالج نفسي بمستشفيات الشرطة" data-en="دكتوراة علم النفس الإكلينيكي – آداب عين شمس، معالج نفسي بمستشفيات الشرطة">دكتوراة علم النفس الإكلينيكي – آداب عين شمس، معالج نفسي بمستشفيات الشرطة</p>
+          <p data-ar="المواعيد: الاثنين، من 4:30 لـ 7:30 مساءً" data-en="Clinic days: Mon">المواعيد: الاثنين، من 4:30 لـ 7:30 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%86%D9%87%D9%84%D8%A9%20%D8%A3%D9%85%D9%8A%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-shaimaa-zaki.jpg" alt="د. شيماء ذكي — أخصائي الصحة النفسية وتعديل السلوك" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="د. شيماء ذكي" data-en="Dr. Shaimaa Zaki">د. شيماء ذكي</h3>
+          <span class="deg" data-ar="أخصائي الصحة النفسية وتعديل السلوك" data-en="Specialist – Neurology &amp; Psychiatry">أخصائي الصحة النفسية وتعديل السلوك</span>
+          <p class="sub" data-ar="تنمية المهارات وصعوبات التعلم، الإرشاد الأسري" data-en="تنمية المهارات وصعوبات التعلم، الإرشاد الأسري">تنمية المهارات وصعوبات التعلم، الإرشاد الأسري</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B4%D9%8A%D9%85%D8%A7%D8%A1%20%D8%B0%D9%83%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="psych" data-spec-ar="المخ والأعصاب والطب النفسي" data-spec-en="Neurology &amp; Psychiatry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/coach-abeer-talaat.jpg" alt="كوتش عبير طلعت — متخصصة في العلاقات والتوافق الزوجي والأسري" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="المخ والأعصاب والطب النفسي" data-en="Neurology &amp; Psychiatry">المخ والأعصاب والطب النفسي</span>
+          <h3 data-ar="كوتش عبير طلعت" data-en="Coach Abeer Talaat">كوتش عبير طلعت</h3>
+          <span class="deg" data-ar="متخصصة في العلاقات والتوافق الزوجي والأسري" data-en="Coach – Neurology &amp; Psychiatry">متخصصة في العلاقات والتوافق الزوجي والأسري</span>
+          <p class="sub" data-ar="كوتش معتمد PCC من الاتحاد الدولي للكوتشينج ICF، Relationship &amp; Marital Compatibility Coach" data-en="كوتش معتمد PCC من الاتحاد الدولي للكوتشينج ICF، Relationship &amp; Marital Compatibility Coach">كوتش معتمد PCC من الاتحاد الدولي للكوتشينج ICF، Relationship &amp; Marital Compatibility Coach</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D9%83%D9%88%D8%AA%D8%B4%20%D8%B9%D8%A8%D9%8A%D8%B1%20%D8%B7%D9%84%D8%B9%D8%AA" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-khaled-mansour.jpg" alt="د. خالد منصور — استشاري زراعة وتجميل الفك والأسنان" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
+          <h3 data-ar="د. خالد منصور" data-en="Dr. Khaled Mansour">د. خالد منصور</h3>
+          <span class="deg" data-ar="استشاري زراعة وتجميل الفك والأسنان" data-en="Consultant – Dentistry">استشاري زراعة وتجميل الفك والأسنان</span>
+          <p class="sub" data-ar="معيد بكلية طب الأسنان، عضو الجمعية المصرية لجراحة الفم والوجه والفكين، عضو الجمعية المصرية لزراعة الأسنان" data-en="معيد بكلية طب الأسنان، عضو الجمعية المصرية لجراحة الفم والوجه والفكين، عضو الجمعية المصرية لزراعة الأسنان">معيد بكلية طب الأسنان، عضو الجمعية المصرية لجراحة الفم والوجه والفكين، عضو الجمعية المصرية لزراعة الأسنان</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="dr-khaled-mansour.html" class="btn btn-outline btn-sm" data-ar="الملف الشخصي" data-en="Profile">الملف الشخصي</a>
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AE%D8%A7%D9%84%D8%AF%20%D9%85%D9%86%D8%B5%D9%88%D8%B1" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry" data-days="sat,tue">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-aya-taha.jpg" alt="د. آية طه محمد — أخصائية الحشوات التجميلية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
+          <h3 data-ar="د. آية طه محمد" data-en="Dr. Aya Taha Mohamed">د. آية طه محمد</h3>
+          <span class="deg" data-ar="أخصائية الحشوات التجميلية" data-en="Specialist – Dentistry">أخصائية الحشوات التجميلية</span>
+          <p class="sub" data-ar="التركيبات الثابتة وعلاج الجذور، الدخول بأسبقية الحضور" data-en="التركيبات الثابتة وعلاج الجذور، الدخول بأسبقية الحضور">التركيبات الثابتة وعلاج الجذور، الدخول بأسبقية الحضور</p>
+          <p data-ar="المواعيد: السبت من 3 لـ 7 مساءً، الثلاثاء من 6 لـ 9 مساءً" data-en="Clinic days: Sat, Tue">المواعيد: السبت من 3 لـ 7 مساءً، الثلاثاء من 6 لـ 9 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A2%D9%8A%D8%A9%20%D8%B7%D9%87%20%D9%85%D8%AD%D9%85%D8%AF" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry" data-days="mon,wed">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-rawan-hossam.jpg" alt="د. روان حسام الدين إبراهيم — أخصائي الأسنان" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
+          <h3 data-ar="د. روان حسام الدين إبراهيم" data-en="Dr. Rawan Hossam El-Din">د. روان حسام الدين إبراهيم</h3>
+          <span class="deg" data-ar="أخصائي الأسنان" data-en="Specialist – Dentistry">أخصائي الأسنان</span>
+          
+          <p data-ar="المواعيد: الاثنين من 6 لـ 10 مساءً، الأربعاء من 6 لـ 10 مساءً" data-en="Clinic days: Mon, Wed">المواعيد: الاثنين من 6 لـ 10 مساءً، الأربعاء من 6 لـ 10 مساءً</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B1%D9%88%D8%A7%D9%86%20%D8%AD%D8%B3%D8%A7%D9%85%20%D8%A7%D9%84%D8%AF%D9%8A%D9%86%20%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="dental" data-spec-ar="طب الأسنان" data-spec-en="Dentistry">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-nourhan-mostafa.jpg" alt="د. نورهان مصطفى — أخصائية علاج اللثة" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب الأسنان" data-en="Dentistry">طب الأسنان</span>
+          <h3 data-ar="د. نورهان مصطفى" data-en="Dr. Nourhan Mostafa">د. نورهان مصطفى</h3>
+          <span class="deg" data-ar="أخصائية علاج اللثة" data-en="Specialist – Dentistry">أخصائية علاج اللثة</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%86%D9%88%D8%B1%D9%87%D8%A7%D9%86%20%D9%85%D8%B5%D8%B7%D9%81%D9%89" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="cardio" data-spec-ar="القلب" data-spec-en="Cardiology">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-hossam-magdy.jpg" alt="د. حسام مجدي — أمراض القلب" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="القلب" data-en="Cardiology">القلب</span>
+          <h3 data-ar="د. حسام مجدي" data-en="Dr. Hossam Magdy">د. حسام مجدي</h3>
+          <span class="deg" data-ar="أمراض القلب" data-en="Doctor – Cardiology">أمراض القلب</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AD%D8%B3%D8%A7%D9%85%20%D9%85%D8%AC%D8%AF%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="vascular" data-spec-ar="الأوعية الدموية" data-spec-en="Vascular Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-sameh-elemam.jpg" alt="أ.د. سامح الإمام — أستاذ جراحة الأوعية الدموية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="الأوعية الدموية" data-en="Vascular Surgery">الأوعية الدموية</span>
+          <h3 data-ar="أ.د. سامح الإمام" data-en="Prof. Sameh El-Emam">أ.د. سامح الإمام</h3>
+          <span class="deg" data-ar="أستاذ جراحة الأوعية الدموية" data-en="Professor – Vascular Surgery">أستاذ جراحة الأوعية الدموية</span>
+          <p class="sub" data-ar="والأشعة التداخلية، علاج دوالي الساقين بدون جراحة" data-en="والأشعة التداخلية، علاج دوالي الساقين بدون جراحة">والأشعة التداخلية، علاج دوالي الساقين بدون جراحة</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%A3.%D8%AF.%20%D8%B3%D8%A7%D9%85%D8%AD%20%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="nutrition" data-spec-ar="التغذية العلاجية" data-spec-en="Clinical Nutrition">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-shereen-amin.jpg" alt="د. شيرين أمين — أخصائية التغذية والروماتويد" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="التغذية العلاجية" data-en="Clinical Nutrition">التغذية العلاجية</span>
+          <h3 data-ar="د. شيرين أمين" data-en="Dr. Shereen Amin">د. شيرين أمين</h3>
+          <span class="deg" data-ar="أخصائية التغذية والروماتويد" data-en="Specialist – Clinical Nutrition">أخصائية التغذية والروماتويد</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%B4%D9%8A%D8%B1%D9%8A%D9%86%20%D8%A3%D9%85%D9%8A%D9%86" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="nutrition" data-spec-ar="التغذية العلاجية" data-spec-en="Clinical Nutrition">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-laila-fawzy.jpg" alt="د. ليلى فوزي — استشاري أول التغذية العلاجية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="التغذية العلاجية" data-en="Clinical Nutrition">التغذية العلاجية</span>
+          <h3 data-ar="د. ليلى فوزي" data-en="Dr. Laila Fawzy">د. ليلى فوزي</h3>
+          <span class="deg" data-ar="استشاري أول التغذية العلاجية" data-en="Senior Consultant – Clinical Nutrition">استشاري أول التغذية العلاجية</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%84%D9%8A%D9%84%D9%89%20%D9%81%D9%88%D8%B2%D9%8A" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="geriatrics" data-spec-ar="طب المسنين" data-spec-en="Geriatrics">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-heba-ezz-elarab.jpg" alt="د. هبة عز العرب — استشاري طب المسنين" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="طب المسنين" data-en="Geriatrics">طب المسنين</span>
+          <h3 data-ar="د. هبة عز العرب" data-en="Dr. Heba Ezz El-Arab">د. هبة عز العرب</h3>
+          <span class="deg" data-ar="استشاري طب المسنين" data-en="Consultant – Geriatrics">استشاري طب المسنين</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D9%87%D8%A8%D8%A9%20%D8%B9%D8%B2%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="plastic" data-spec-ar="جراحة التجميل" data-spec-en="Plastic Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-ahmed-abuzeid.jpg" alt="د. أحمد أبو زيد — استشاري أول جراحة التجميل" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="جراحة التجميل" data-en="Plastic Surgery">جراحة التجميل</span>
+          <h3 data-ar="د. أحمد أبو زيد" data-en="Dr. Ahmed Abu Zeid">د. أحمد أبو زيد</h3>
+          <span class="deg" data-ar="استشاري أول جراحة التجميل" data-en="Senior Consultant – Plastic Surgery">استشاري أول جراحة التجميل</span>
+          <p class="sub" data-ar="الطب التجميلي وتنسيق القوام، عضو الجمعية الأوروبية للجراحات التجميلية" data-en="الطب التجميلي وتنسيق القوام، عضو الجمعية الأوروبية للجراحات التجميلية">الطب التجميلي وتنسيق القوام، عضو الجمعية الأوروبية للجراحات التجميلية</p>
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%A3%D8%A8%D9%88%20%D8%B2%D9%8A%D8%AF" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
+          </div>
+        </div>
+      </div>
+      <div class="doctor-card" data-spec="plastic" data-spec-ar="جراحة التجميل" data-spec-en="Plastic Surgery">
+        <div class="doctor-photo" style="padding:0;">
+          <img src="assets/dr-hussein-gamgoum.jpg" alt="د. حسين جمجوم — استشاري جراحة التجميل والإصلاح والحروق" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="doctor-info">
+          <span class="spec" data-ar="جراحة التجميل" data-en="Plastic Surgery">جراحة التجميل</span>
+          <h3 data-ar="د. حسين جمجوم" data-en="Dr. Hussein Gamgoum">د. حسين جمجوم</h3>
+          <span class="deg" data-ar="استشاري جراحة التجميل والإصلاح والحروق" data-en="Consultant – Plastic Surgery">استشاري جراحة التجميل والإصلاح والحروق</span>
+          
+          <p data-ar="للمواعيد: اتصل بنا" data-en="Call for appointment times">للمواعيد: اتصل بنا</p>
+          <div class="doctor-actions">
+            <a href="https://wa.me/201128323232?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AD%D8%AC%D8%B2%20%D9%85%D8%B9%20%D8%AF.%20%D8%AD%D8%B3%D9%8A%D9%86%20%D8%AC%D9%85%D8%AC%D9%88%D9%85" target="_blank" rel="noopener" class="btn btn-primary btn-sm" data-ar="احجز عبر واتساب" data-en="Book on WhatsApp">احجز عبر واتساب</a>
           </div>
         </div>
       </div>
@@ -1350,12 +2224,17 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.doctor-card').forEach(function(card){
       var matchSpec = spec === 'all' || card.dataset.spec === spec;
       var matchDay = day === 'all' || (card.dataset.days || '').split(',').indexOf(day) > -1;
-      card.style.display = (matchSpec && matchDay) ? '' : 'none';
+      var q = (document.getElementById('doctorSearch') || {}).value || '';
+      q = q.trim().toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+      var hay = (card.querySelector('h3').getAttribute('data-ar') + ' ' + card.querySelector('h3').getAttribute('data-en')).toLowerCase().replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي');
+      var matchQ = !q || hay.indexOf(q) > -1;
+      card.style.display = (matchSpec && matchDay && matchQ) ? '' : 'none';
     });
     if (docTrack) docTrack.scrollTo({left:0});
   }
   if(specFilter) specFilter.addEventListener('change', filterDoctors);
   if(dayFilter) dayFilter.addEventListener('change', filterDoctors);
+  var docSearch = document.getElementById('doctorSearch'); if (docSearch) docSearch.addEventListener('input', filterDoctors);
   if (docTrack) {
     var isRTL = function(){ return getComputedStyle(docTrack).direction === 'rtl'; };
     var step = function(){ var c = docTrack.querySelector('.doctor-card:not([style*="none"])'); return c ? c.getBoundingClientRect().width + 22 : 300; };
